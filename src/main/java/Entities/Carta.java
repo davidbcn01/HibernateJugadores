@@ -1,12 +1,17 @@
 package Entities;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.sql.Date;
 
 public class Carta implements Serializable {
-
+@Column(name ="nombreTipo")
     String nombreTipo;
+@Column(name = "fechaLanzamiento")
     Date fechaLanzamiento;
+@Id
+@Column(name = "idCarta")
     int idCarta;
 
     public String getNombreTipo() {

@@ -1,9 +1,18 @@
 package Entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table( name="jugador")
 public class Jugador extends Persona implements Serializable {
-    int idCarta,idEquipo,idJugador;
+    int idCarta,idEquipo;
+    @Id
+    @Column(name = "idJugador")
+    int idJugador;
+    @OneToOne(mappedBy = "jugador", fetch = FetchType.LAZY)
+    Estadisticas estadisticas;
+
 
     public Jugador(int idCarta, int idEquipo, int idJugador) {
         this.idCarta = idCarta;

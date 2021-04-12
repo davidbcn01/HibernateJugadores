@@ -1,10 +1,16 @@
 package Entities;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 public class Equipo implements Serializable {
-
-    String nombre, liga;
+    @Column(name = "nombre")
+    String nombre;
+    @Column(name = "liga")
+    String liga;
+    @Id
+    @Column(name = "idEquipo")
     int idEquipo;
 
     public String getNombre() {

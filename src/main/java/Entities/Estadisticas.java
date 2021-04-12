@@ -1,12 +1,31 @@
 package Entities;
 
+import org.hibernate.annotations.Fetch;
+
+import javax.persistence.*;
 import java.io.Serializable;
-
+@Entity
+@Table( name="estadisticas")
 public class Estadisticas implements Serializable {
-    int valoracion,ritmo,tiro,pase,regate,defensa,fisico,piernaMala,filigranas,idJugador;
-    String estiloQuimica,piernaBuena;
+    int valoracion;
+    int ritmo;
+    int tiro;
+    int pase;
+    int regate;
+    int defensa;
+    int fisico;
+    int piernaMala;
+    int filigranas;
 
-    public Estadisticas(int valoracion, int ritmo, int tiro, int pase, int regate, int defensa, int fisico, String estiloQuimica, int piernaMala, int filigranas, int idJugador, String piernaBuena) {
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idJugador")
+    Jugador jugador;
+
+
+    String estiloQuimica;
+    String piernaBuena;
+
+    public Estadisticas(int valoracion, int ritmo, int tiro, int pase, int regate, int defensa, int fisico, String estiloQuimica, int piernaMala, int filigranas, Jugador jugador, String piernaBuena) {
         this.valoracion = valoracion;
         this.ritmo = ritmo;
         this.tiro = tiro;
@@ -16,7 +35,7 @@ public class Estadisticas implements Serializable {
         this.fisico = fisico;
         this.piernaMala = piernaMala;
         this.filigranas = filigranas;
-        this.idJugador = idJugador;
+        this.jugador = jugador;
         this.estiloQuimica = estiloQuimica;
         this.piernaBuena = piernaBuena;
     }
@@ -93,12 +112,12 @@ public class Estadisticas implements Serializable {
         this.filigranas = filigranas;
     }
 
-    public int getIdJugador() {
-        return idJugador;
+    public Jugador getJugador() {
+        return jugador;
     }
 
-    public void setIdJugador(int idJugador) {
-        this.idJugador = idJugador;
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
     }
 
     public String getEstiloQuimica() {
@@ -129,7 +148,7 @@ public class Estadisticas implements Serializable {
                 ", fisico=" + fisico +
                 ", piernaMala=" + piernaMala +
                 ", filigranas=" + filigranas +
-                ", idJugador=" + idJugador +
+                ", jugador=" + jugador +
                 ", estiloQuimica='" + estiloQuimica + '\'' +
                 ", piernaBuena='" + piernaBuena + '\'' +
                 '}';

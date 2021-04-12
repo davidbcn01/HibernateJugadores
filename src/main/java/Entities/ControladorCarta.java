@@ -1,25 +1,34 @@
 package Entities;
 
+import java.sql.Date;
+
 public class ControladorCarta {
     public void showCarta(){
         //TODO
         //Metodo para enseñar la tabla de carta completa
     }
-    public void searchCarta(){
+    public void searchCarta(int idCarta){
         //TODO
         //Metodo para buscar una carta en concreto
+        //Si el idCarta no existe, salta error
+
+
 
     }
-    public void addCarta(){
+    public void addCarta(String nombreTipp, Date fechaLanzamiento, int idCarta){
         //TODO
-        //Metodo para añadir una carta
+        //Metodo para crear una carta
+        //Si el idCarta existe ya, salta error
+
     }
-    public void alterCarta(){
+    public void alterCarta(int idCarta){
         //TODO
         //Metodo para modificar los valores de las cartas que ya hay en la tabla
+        //Si el idCarta no existe, salta error
     }
-    public void deleteCarta(){
+    public void deleteCarta(int idCarta){
         //TODO
         //Metodo para eliminar una carta en concreto
+        //Si el idCarta no existe, salta error
     }
 }
