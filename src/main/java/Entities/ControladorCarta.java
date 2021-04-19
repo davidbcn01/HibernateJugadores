@@ -15,7 +15,7 @@ public class ControladorCarta {
 
 
     }
-    public void addCarta(String nombreTipp, Date fechaLanzamiento, int idCarta){
+    public void addCarta(String nombreTipo, Date fechaLanzamiento, int idCarta){
         //TODO
         //Metodo para crear una carta
         //Si el idCarta existe ya, salta error

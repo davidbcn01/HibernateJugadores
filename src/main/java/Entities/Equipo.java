@@ -1,9 +1,11 @@
 package Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
+@Entity
+@Table( name="equipo")
 public class Equipo implements Serializable {
     @Column(name = "nombre")
     String nombre;
@@ -12,7 +14,8 @@ public class Equipo implements Serializable {
     @Id
     @Column(name = "idEquipo")
     int idEquipo;
-
+    @OneToMany(mappedBy = "equipo")
+    private List<Jugador> jugadoresEquipo;
     public String getNombre() {
         return nombre;
     }
@@ -43,6 +46,7 @@ public class Equipo implements Serializable {
                 "nombre='" + nombre + '\'' +
                 ", liga='" + liga + '\'' +
                 ", idEquipo=" + idEquipo +
+                ", jugadoresEquipo=" + jugadoresEquipo +
                 '}';
     }
 }

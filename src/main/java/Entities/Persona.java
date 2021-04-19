@@ -1,10 +1,20 @@
 package Entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
+@Entity
+@Table( name="jugador")
+@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
 public class Persona implements Serializable {
-    String nombre, apellidos,nacionalidad;
+    @Column(name = "nombre")
+    String nombre;
+    @Column(name = "apellidos")
+    String apellidos;
+    @Column(name = "nacionalidad")
+    String nacionalidad;
+    @Column(name = "fechanacimiento")
     Date fechaNacimiento;
 
     public String getNombre() {

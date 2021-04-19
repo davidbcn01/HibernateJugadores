@@ -7,23 +7,32 @@ import java.io.Serializable;
 @Entity
 @Table( name="estadisticas")
 public class Estadisticas implements Serializable {
+    @Column(name = "valoracion")
     int valoracion;
+    @Column(name = "ritmo")
     int ritmo;
+    @Column(name = "tiro")
     int tiro;
+    @Column(name = "pase")
     int pase;
+    @Column(name = "regate")
     int regate;
+    @Column(name = "defensa")
     int defensa;
+    @Column(name = "fisico")
     int fisico;
+    @Column(name = "piernamala")
     int piernaMala;
+    @Column(name = "filigranas")
     int filigranas;
-
+    @Column(name = "estiloquimica")
+    String estiloQuimica;
+    @Column(name = "piernabuena")
+    String piernaBuena;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idJugador")
     Jugador jugador;
 
-
-    String estiloQuimica;
-    String piernaBuena;
 
     public Estadisticas(int valoracion, int ritmo, int tiro, int pase, int regate, int defensa, int fisico, String estiloQuimica, int piernaMala, int filigranas, Jugador jugador, String piernaBuena) {
         this.valoracion = valoracion;
