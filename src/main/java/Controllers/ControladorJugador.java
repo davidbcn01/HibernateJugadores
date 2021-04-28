@@ -1,4 +1,4 @@
-package Entities;
+package Controllers;
 
 public class ControladorJugador {
     public void showJugador(){

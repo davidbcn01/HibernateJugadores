@@ -18,6 +18,13 @@ int idCarta;
 @OneToMany(mappedBy = "carta")
 private List<Jugador> jugadorList;
 
+    public Carta(String nombreTipo, Date fechaLanzamiento, int idCarta, List<Jugador> jugadorList) {
+        this.nombreTipo = nombreTipo;
+        this.fechaLanzamiento = fechaLanzamiento;
+        this.idCarta = idCarta;
+        this.jugadorList = jugadorList;
+    }
+
     public String getNombreTipo() {
         return nombreTipo;
     }

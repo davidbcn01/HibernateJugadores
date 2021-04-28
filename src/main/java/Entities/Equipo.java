@@ -20,6 +20,16 @@ public class Equipo implements Serializable {
         return nombre;
     }
 
+    public Equipo(String nombre, String liga, int idEquipo, List<Jugador> jugadoresEquipo) {
+        this.nombre = nombre;
+        this.liga = liga;
+        this.idEquipo = idEquipo;
+        this.jugadoresEquipo = jugadoresEquipo;
+    }
+
+    public Equipo() {
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

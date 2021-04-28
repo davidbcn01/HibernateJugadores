@@ -2,11 +2,12 @@ package Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 @Table( name="jugador")
 @DiscriminatorValue("JUGADOR_INFO")
-public class Jugador extends Persona implements Serializable {
+public class Jugador implements Serializable {
     int idEquipo;
     @Id
     @Column(name = "idJugador")
@@ -19,6 +20,14 @@ public class Jugador extends Persona implements Serializable {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="idequipo")
     private Equipo equipo;
+    @Column(name = "nombre")
+    String nombre;
+    @Column(name = "apellidos")
+    String apellidos;
+    @Column(name = "nacionalidad")
+    String nacionalidad;
+    @Column(name = "fechanacimiento")
+    Date fechaNacimiento;
 
     /*public Jugador(Carta carta, int idEquipo, int idJugador) {
         this.carta= carta;
@@ -28,7 +37,16 @@ public class Jugador extends Persona implements Serializable {
 
      */
 
-    public Jugador() {
+    public Jugador(int idEquipo, int idJugador, Estadisticas estadisticas, Carta carta, Equipo equipo, String nombre, String apellidos, String nacionalidad, Date fechaNacimiento) {
+        this.idEquipo = idEquipo;
+        this.idJugador = idJugador;
+        this.estadisticas = estadisticas;
+        this.carta = carta;
+        this.equipo = equipo;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.nacionalidad = nacionalidad;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public int getIdEquipo() {
@@ -69,6 +87,38 @@ public class Jugador extends Persona implements Serializable {
 
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     @Override

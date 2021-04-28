@@ -1,4 +1,4 @@
-package Entities;
+package Controllers;
 
 import java.sql.Date;
 
